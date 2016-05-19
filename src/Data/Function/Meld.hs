@@ -1,8 +1,8 @@
-{-| Map the arguments and return value of functions. 
+ï»¿{-| Map the arguments and return value of functions. 
 
 General use:
 
-  - @f $* g1 $$ g2 … $$ gn *$ h = \x1 … xn -> h (f (g1 x1) (g2 x2) … (gn xn))@
+  - @f $* g1 $$ g2 â€¦ $$ gn *$ h = \\x1 â€¦ xn -> h (f (g1 x1) (g2 x2) â€¦ (gn xn))@
 
 Examples:
 
@@ -30,21 +30,21 @@ ret = (.)
 
 -- | Begin melding.
 --
--- @f $* g1 $$ g2 … $$ gn *$ h = \x1 … xn -> h (f (g1 x1) (g2 x2) … (gn xn))@
+-- @f $* g1 $$ g2 â€¦ $$ gn *$ h = \\x1 â€¦ xn -> h (f (g1 x1) (g2 x2) â€¦ (gn xn))@
 ($*) :: (b -> c) -> (a -> b) -> (c -> d) -> a -> d
 ($*) x f g = ret g (arg f x)
 infixl 8 $*
 
 -- | Continue melding.
 --
--- @f $* g1 $$ g2 … $$ gn *$ h = \x1 … xn -> h (f (g1 x1) (g2 x2) … (gn xn))@
+-- @f $* g1 $$ g2 â€¦ $$ gn *$ h = \\x1 â€¦ xn -> h (f (g1 x1) (g2 x2) â€¦ (gn xn))@
 ($$) :: (((b -> c) -> a -> d) -> e) -> (a -> b) -> (c -> d) -> e
 ($$) f g h = f (ret h . arg g)
 infixl 7 $$
 
 -- | Finish melding.
 --
--- @f $* g1 $$ g2 … $$ gn *$ h = \x1 … xn -> h (f (g1 x1) (g2 x2) … (gn xn))@
+-- @f $* g1 $$ g2 â€¦ $$ gn *$ h = \\x1 â€¦ xn -> h (f (g1 x1) (g2 x2) â€¦ (gn xn))@
 (*$) :: (a -> b) -> a -> b
 (*$) = ($)
 infixl 6 *$
