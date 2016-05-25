@@ -1,5 +1,5 @@
 name:                data-function-meld
-version:             0.1.0.0
+version:             0.1.1.0
 synopsis:            Map the arguments and return value of functions.
 description:         Map the arguments and return value of functions.   
 homepage:            https://github.com/erisco/data-function-meld
@@ -16,7 +16,7 @@ library
 
   exposed-modules:     Data.Function.Meld
   
-  build-depends:       base >=4.0 && <4.9
+  build-depends:       base >=4.0
   
   hs-source-dirs:      src
   
